@@ -5,22 +5,27 @@ const url = "https://api.rawg.io/api/games?dates=2019-01-01,2019-12-31&ordering=
 const resultsContainer = document.querySelector(".container");
 
 async function getApi() {
-  const response = await fetch(url);
+  try {
+    const response = await fetch(url);
 
-  const data = await response.json();
+    const data = await response.json();
 
-  const facts = data.results;
+    const facts = data.results;
 
-  console.log(data);
+    console.log(data);
 
-  resultsContainer.innerHTML = "";
+    resultsContainer.innerHTML = "";
 
-  for (let i = 0; i < facts.length; i++) {
-    if (i === 8) {
-      break;
+    for (let i = 0; i < facts.length; i++) {
+      if (i === 8) {
+        break;
+      }
+
+      resultsContainer.innerHTML += `<div class="results">${facts[i].name}: Rating: ${facts[i].rating} Number of Tags: ${facts[i].tags.length}</div>`;
     }
-
-    resultsContainer.innerHTML += `<div>${facts[i].name}</div>`;
+  } catch (error) {
+    console.log("An error has occoured");
+    resultsContainer.innerHTML = "An error has occoured";
   }
 }
 
