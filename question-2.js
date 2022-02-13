@@ -21,11 +21,15 @@ async function getApi() {
         break;
       }
 
-      resultsContainer.innerHTML += `<div class="results">${facts[i].name}: Rating: ${facts[i].rating} Number of Tags: ${facts[i].tags.length}</div>`;
+      resultsContainer.innerHTML += `<div class="results">
+                                    <p class="blue">Name: ${facts[i].name}</p>
+                                    <p>Rating: ${facts[i].rating}</p>
+                                    <p class="green">Tags: ${facts[i].tags.length}</p>
+                                    </div>`;
     }
   } catch (error) {
     console.log("An error has occoured");
-    resultsContainer.innerHTML = "An error has occoured";
+    resultsContainer.innerHTML = displayError("An error has occoured");
   }
 }
 

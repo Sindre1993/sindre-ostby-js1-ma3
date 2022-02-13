@@ -19,3 +19,21 @@
 .results {
   margin-top: 5px;
 }
+
+.error {
+  display: flex;
+  justify-content: center;
+  width: 200px;
+  border: 1px solid darkred;
+  padding: 5px;
+  color: black;
+  background: rgb(255, 0, 0, 0.1);
+}
+
+.blue {
+  color: blue;
+}
+
+.green {
+  color: green;
+}
